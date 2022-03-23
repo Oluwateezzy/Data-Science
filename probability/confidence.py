@@ -27,20 +27,6 @@ def inverse_normal_cdf(p, mu=0, sigma=1, tolerance=0.00001):
     
     return mid_z
 
-def normal_approximation_to_binomial(n, p):
-    mu = p * n
-    sigma = math.sqrt(p * (1 - p) * n)
-    return mu, sigma
-
-def normal_probability_above(lo, mu=0, sigma=1):
-    return 1 - normal_cdf(lo, mu, sigma)
-
-def normal_probability_between(lo, hi, mu=0, sigma=1):
-    return normal_cdf(hi, mu, sigma) - normal_cdf(lo, mu, sigma)
-
-def normal_probability_outside(lo, hi, mu=0, sigma=1):
-    return 1 - normal_probability_between(lo, hi, mu, sigma)
-
 def normal_upper_bound(probability, mu=0, sigma=1):
     return inverse_normal_cdf(probability, mu, sigma)
 
@@ -56,24 +42,8 @@ def normal_two_sided_bounds(probability, mu=0, sigma=1):
 
     return lower_bound, upper_bound
 
+p_hat = 540/1000
+mu = p_hat
+sigma = math.sqrt(p_hat * (1 - p_hat) / 1000)
 
-mu_o, sigma_o = normal_approximation_to_binomial(1000, 0.5)
-
-
-lower_bound1, upper_bound2 = normal_two_sided_bounds(0.95, mu_o, sigma_o)
-mu_1, sigma_1 = normal_approximation_to_binomial(1000, 0.55)
-
-
-type_2_probability = normal_probability_between(lower_bound1, upper_bound2, mu_1, sigma_1)
-power = 1 - type_2_probability
-
-def two_sided_p_value(x, mu=0, sigma=1):
-    if x >= mu:
-        return 2 * normal_probability_above(x, mu, sigma)
-    else:
-        return 2 * normal_cdf(x, mu, sigma)
-
-print(mu_o, sigma_o)
-print(lower_bound1, upper_bound2)
-print(type_2_probability, power)
-print(two_sided_p_value(529.5, mu_o, sigma_o))
+print(normal_two_sided_bounds(0.95, mu, sigma))
