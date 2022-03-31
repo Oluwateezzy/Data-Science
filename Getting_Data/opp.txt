@@ -1,0 +1,5 @@
+Getting the current directory The function getcwd returns the path of current directory. It will
+be the the directory your program is in or the directory you changed it to with chdir.
+Getting the files in a directory The function listdir returns a list of the entries in a directory,
+including all files and subdirectories. If you just want the files and not the subdirectories or viceversa,
+the os.path module contains the functions isfile and isdir to tell if an entry is a file or a
