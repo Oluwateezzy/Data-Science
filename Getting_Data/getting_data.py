@@ -1,4 +1,4 @@
-import sys, re
+import sys
 from collections import Counter
 
 try:
