@@ -1,17 +1,26 @@
 {
   "folders": [
-	{
-		"path": "..\\..\\web 3.0"
-	},
-	{
-		"path": "..\\..\\Data Science"
-	},
-	{
-		"path": "..\\..\\Demo"
-	},
-	{
-		"path": ".."
-	}
-],
+    {
+      "path": "..\\..\\web 3.0"
+    },
+    {
+      "path": "..\\..\\Data Science"
+    },
+    {
+      "path": "..\\..\\Demo"
+    },
+    {
+      "path": ".."
+    },
+    {
+      "path": "..\\..\\java"
+    },
+    {
+      "path": "..\\..\\nft-marketplace"
+    },
+    {
+      "path": "..\\..\\REST_API_TYPESCRIPT"
+    }
+  ],
   "settings": {}
 }
